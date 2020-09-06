@@ -1,3 +1,5 @@
-![alt text](redis.png)
+# HEROKU_EJEMPLO
 
-# Ejemplo para heroku
+Ejemplo de una aplicacion **python** desplegada en **heroku**
+
+![alt text](https://lefthookdigital.com/wp-content/uploads/Heroku.png)
