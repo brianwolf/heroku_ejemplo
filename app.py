@@ -1,31 +1,21 @@
-import json
-import os
+from os import path
 
 from flask import Flask
-from flask import jsonify
+
+from logic.app.configs import config
+from logic.libs.logger import logger
+from logic.libs.rest import rest
+
+directorio_logs = config.DIRECTORIO_LOGS
+nivel_logs = config.NIVEL_LOGS
+logger.iniciar(directorio_logs, nivel_logs)
 
 app = Flask(__name__)
-
-
-@app.route('/')
-def hello():
-    respuesta = {"servidor-numero": 1}
-    return jsonify(respuesta)
+rest.iniciar(app, 'logic/app/routes')
 
 
 if __name__ == "__main__":
-    puerto = int(os.environ.get("PYTHON1_PUERTO", 5000))
-    app.run(host="0.0.0.0", port=puerto)
+    flask_host = config.PYTHON_HOST
+    flask_port = int(config.PYTHON_PORT)
 
-
-# # USADO POR GUNICORN
-# def app(environ, start_response):
-
-#     respuesta = {
-#         "servidor-numero": 1
-#     }
-
-#     headers = [("Content-Type", "application/json")]
-#     start_response("200 OK", headers)
-
-#     return [bytes(json.dumps(respuesta), 'utf-8')]
+    app.run(host=flask_host, port=flask_port, debug=True)
