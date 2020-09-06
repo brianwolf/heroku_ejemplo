@@ -1,10 +1,9 @@
-# HEROKU_EJEMPLO
+# Heroku Ejemplo Python
 
 > Ejemplo de una aplicacion **python** desplegada en **heroku**
 
 ![alt text](docs/img/heroku.png)
 ![alt text](docs/img/python.png)
-![alt text](docs/img/githubactions.png)
 
 ---
 
